@@ -19,20 +19,26 @@ function persistence(int $num): int {
     $j = 0;
     $arr = str_split($num);
     $digits = count($arr);
-    if ($digits = 1) return 0;
-    $num = $arr[0];
     
+    if ($digits == 1) return 0;
+   
     while($digits > 1) {
-        for($i = 1; $i <= $digits; $i++) {
+       
+        $num = $arr[0];
+        
+        for($i = 1; $i < $digits; $i++) {
             $num *= $arr[$i];
+            
         }
         $arr = str_split($num);
+       
         $digits = count($arr);
         $j++;
+       
     }
         
     return $j;
         
 }
-
-persistence(43);
+echo "<br/>";
+echo persistence(39);
