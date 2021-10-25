@@ -19,23 +19,18 @@
 
 function solution(string $s): int {
     $arr = str_split($s);
-    $d5 = [];
-    $digits = count($arr);
-    echo $digits;
-    echo "<br/>";
-    for($i = 0; $i < $digits; $i++){
-        echo $i;
-       
-        for($j = $i; $j < $digits; $j++){
-            echo "&nbsp;&nbsp;&nbsp;&nbsp;";
-            echo $j;
-            $d5[$i] .= $arr[$j];
+    $j = 0;
+    while(count($arr) > 4) {
+        
+        for($i = 0; $i < 5; $i++) {
+            $d5[$j] .= $arr[$i];
         }
+        array_shift($arr);
+        $j++;
 
-        echo "<br/>";
     }
-    var_dump($d5);
     return max($d5);
+   
   }
 
   solution('1234567898765');
